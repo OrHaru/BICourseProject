@@ -1,0 +1,33 @@
+SELECT Aassist_method, COUNT(AID) as numberOfAttempts, SUM(Ais_goal) as numberOfGoals,
+		(CAST (SUM(Ais_goal) AS float)/CAST (COUNT(AID) AS float))*100 as  Percentage
+FROM Attempts
+GROUP BY Aassist_method;
+
+SELECT ETID ,Aassist_method, COUNT(AID) as numberOfAttempts, SUM(Ais_goal) as numberOfGoals,
+		(CAST (SUM(Ais_goal) AS float)/CAST (COUNT(AID) AS float))*100 as  Percentage
+FROM Attempts, Events
+ON Attempts.AID = Events.EID
+WHERE ETID = 2
+GROUP BY Aassist_method;
+
+SELECT Aassist_method, Etime, COUNT(AID) as numberOfAttempts, SUM(Ais_goal) as numberOfGoals,
+		(CAST (SUM(Ais_goal) AS float)/CAST (COUNT(AID) AS float))*100 as  Percentage
+FROM Attempts, Events
+ON Attempts.AID = Events.EID
+WHERE Etime > 46
+GROUP BY Aassist_method;
+
+SELECT DISTINCT ETID, Etype, COUNT(Etype)
+OVER(PARTITION BY ETID, Etype) as TotalEventsPerTeam
+FROM Events;
+
+SELECT DISTINCT ETID, Etype, COUNT(Etype)
+OVER(PARTITION BY ETID, Etype) as TotalEventsPerTeam
+FROM Events
+WHERE ETID = 1;
+
+SELECT ETID, Sum(Ais_goal)
+FROM Events
+LEFT JOIN Attempts
+ON Attempts.AID = Events.EID
+GROUP BY ETID;

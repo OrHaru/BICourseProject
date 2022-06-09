@@ -1,0 +1,18 @@
+INSERT INTO Leagues
+VALUES (1, "English Premier League", "England"), (2, "La Liga", "Spain");
+
+INSERT INTO Teams
+VALUES (1, 1, "Manchester United"), (2, 1, "Arsenal"), (3, 2, "Barcelona"), (4, 2, "Real Madrid");
+
+INSERT INTO Seasons
+VALUES (1, "12-13"), (2, "13-14");
+
+INSERT INTO Matches
+VALUES (1, 1, 2, 1, "14-11-2012", 3, 0), (2, 2, 1, 1, "14-12-2012", 1, 2), (3, 4, 3, 1, "14-11-2012", 3, 2), (4, 3, 4, 1, "14-12-2012", 5, 2);
+
+INSERT INTO Events
+VALUES (1, 1, 1, 23, "Foul"), (2, 1, 1, 47, "Foul"), (3, 1, 2, 23, "Red Card"), (4, 1, 1, 90, "Foul"), (5, 1, 1, 90, "Red Card"), (6, 1, 2, 93, "Attempt"),
+(7, 1, 2, 95, "Attempt"), (8, 2, 3, 95, "Attempt"),  (9, 2, 3, 95, "Attempt"), (10, 2, 3, 95, "Attempt");
+
+INSERT INTO Attempts
+VALUES (6, "Here", 1, "Pass", "Nice"), (7, "There", 1, "Free Kick", "hi"), (8, "There", 0, "Penalty", "there"), (9, "hi", 1, "Free Kick", "hi"), (10, "hi", 0, "Free Kick", "hi");
